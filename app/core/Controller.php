@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Core;
+
 // Classe base para todos os controllers
 class Controller
 {

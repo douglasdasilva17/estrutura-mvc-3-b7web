@@ -1,4 +1,10 @@
 <?php
+
+namespace App\Models\User;
+
+use App\Core\Controller;
+use App\Models\User;
+
 require_once __DIR__ . '/../core/Controller.php';
 require_once __DIR__ . '/../models/User.php';
 

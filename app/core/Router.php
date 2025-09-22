@@ -1,7 +1,9 @@
 <?php
 
-require_once('../app/controllers/HomeController.php');
-require_once('../app/controllers/errors/HttpErrorController.php');
+namespace App\Core;
+
+use App\Controllers\HomeController;
+use App\Controllers\Errors\HttpErrorController;
 
 class Router
 {
@@ -16,14 +18,14 @@ class Router
 
     // Pega o nome do controller que vem na URL e define-a
     $controllerName = $parts[0] ?? 'Home';
-    $controllerName = ucfirst($controllerName) . 'Controller';
+    $controllerName = 'App\Controllers\\' . ucfirst($controllerName) . 'Controller';
 
     $actionName = $parts[1] ?? 'index';
 
     // Verifica se o controlador (classe) existe, se não, usar o controlador HttpErrorController
     if (!class_exists($controllerName)) {
       $controller = new HttpErrorController();
-      $controller->NotFoundError();
+      $controller->notFoundError();
       return;
     }
 
@@ -33,7 +35,7 @@ class Router
     // Verifica se o metodo existe dentro do controller
     if (!method_exists($controller, $actionName)) {
       $controller = new HttpErrorController();
-      $controller->NotFoundError();
+      $controller->notFoundError();
       return;
     }
 
