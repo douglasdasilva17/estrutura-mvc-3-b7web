@@ -1,0 +1,11 @@
+{
+    "name": "douglas/mvc",
+    "description": "MVC structure",
+    "authors": [
+        {
+            "name": "Douglas da Silva",
+            "email": "douglasdasilva448@gmail.com"
+        }
+    ],
+    "require": {}
+}
