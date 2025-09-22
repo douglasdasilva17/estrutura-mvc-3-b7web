@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Proteção contra redirecionamento em loop
+RewriteCond %{REQUEST_URI} !^/public
+
+# Redireciona tudo para index.php
+RewriteRule ^(.*)$ public/index.php?url=$1 [QSA,L]
